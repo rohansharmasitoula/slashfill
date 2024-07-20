@@ -10,6 +10,17 @@
 - **Edit and Delete**: Update or remove individual entries or delete selected items.
 - **Dropdown Suggestions**: Receive real-time suggestions based on your input.
 
+
+
+## Installation
+- Download the Zip file from [SlashFill.zip](https://github.com/rohansharmasitoula/slashfill/raw/master/slashfill.zip)
+- Unzip the file
+- Open Chrome and go to `chrome://extensions/`.
+- Enable "Developer mode" (toggle switch in the top-right corner).
+- Click "Load unpacked" and select the `slashfill` directory that you unzipped
+
+
+
 ## Development
 
 1. **Clone the Repository:**
