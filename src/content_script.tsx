@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
+import './index.css';
 
 interface DataItem {
     key: string;
@@ -32,12 +32,7 @@ const Dropdown: React.FC<DropdownProps> = ({ suggestions, onSelect, style }) => 
                     onClick={() => onSelect(suggestion.value)}
                 >
                     <span>{suggestion.key}: {suggestion.value}</span>
-                    <span className="ml-2 relative inline-flex items-center justify-center px-3 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full">
-                        {suggestion.tag}
-                        <svg className="absolute left-0 w-2 h-2 ml-0.5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 0l5 10-5 10H5l5-10L5 0h5z" />
-                        </svg>
-                    </span>
+                    <span className="ml-2 px-2 py-1 text-xs font-semibold text-white bg-blue-500 rounded">{suggestion.tag}</span>
                 </li>
             ))}
         </ul>
