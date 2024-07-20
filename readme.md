@@ -5,10 +5,16 @@
 
 **SlashFill** is a Chrome extension designed to streamline data entry on web pages by using environment-based tags and slash commands for quick population. Ideal for developers and QA professionals, this extension helps you manage and populate data efficiently with slash (`/`) command.
 
-https://github.com/user-attachments/assets/feec5780-fb37-4235-bcd0-2d506e11d24b
+## Demo 
 
-https://github.com/user-attachments/assets/09d94ca0-545d-4916-9e0f-e3fede4256fc
-
+<video width="600" controls>
+  <source src="https://github.com/user-attachments/assets/feec5780-fb37-4235-bcd0-2d506e11d24b" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video width="600" controls>
+  <source src="https://github.com/user-attachments/assets/09d94ca0-545d-4916-9e0f-e3fede4256fc" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Features
 
