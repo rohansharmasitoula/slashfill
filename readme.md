@@ -39,7 +39,7 @@
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/slashfill.git
+   git clone git@github.com:rohansharmasitoula/slashfill.git
    cd slashfill
    ```
 
