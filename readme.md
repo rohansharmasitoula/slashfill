@@ -22,6 +22,7 @@
 - **Search Functionality**: Quickly find and manage your saved data.
 - **Edit and Delete**: Update or remove individual entries or delete selected items.
 - **Dropdown Suggestions**: Receive real-time suggestions based on your input.
+- **Copy values to clipboard**: If any site does not allow the injection of values, you can still copy them from browser popup and paste it.
 
 ## Installation
 - Download the Zip file from [SlashFill.zip](https://github.com/rohansharmasitoula/slashfill/raw/master/slashfill.zip)
