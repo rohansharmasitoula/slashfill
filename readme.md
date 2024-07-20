@@ -10,7 +10,7 @@
 - **Edit and Delete**: Update or remove individual entries or delete selected items.
 - **Dropdown Suggestions**: Receive real-time suggestions based on your input.
 
-## Installation
+## Development
 
 1. **Clone the Repository:**
 
