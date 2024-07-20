@@ -91,6 +91,3 @@ https://github.com/user-attachments/assets/09d94ca0-545d-4916-9e0f-e3fede4256fc
 
 Contributions are welcome! Please open an issue or submit a pull request to contribute to the project.
 
----
-
-**Developed by [Rohan Sharma Sitoula](https://github.com/rohansharmasitoula)**
