@@ -1,6 +1,19 @@
-# SlashFill
+# Coming Soon to the Web Store!
+<p>
+  <img src="public/logo.png" alt="Logo" width="80" height="80" style="vertical-align: middle;">
+</p>
 
-**SlashFill** is a Chrome extension designed to streamline data entry on web pages by using environment-based tags and slash commands for quick auto-population. Ideal for developers and QA professionals, this extension helps you manage and populate data efficiently with a user-friendly interface.
+**SlashFill** is a Chrome extension designed to streamline data entry on web pages by using environment-based tags and slash commands for quick population. Ideal for developers and QA professionals, this extension helps you manage and populate data efficiently with slash (`/`) command.
+
+<video width="600" controls>
+  <source src="https://github.com/user-attachments/assets/feec5780-fb37-4235-bcd0-2d506e11d24b" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br>
+<video width="600" controls>
+  <source src="https://github.com/user-attachments/assets/09d94ca0-545d-4916-9e0f-e3fede4256fc" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Features
 
@@ -9,37 +22,14 @@
 - **Search Functionality**: Quickly find and manage your saved data.
 - **Edit and Delete**: Update or remove individual entries or delete selected items.
 - **Dropdown Suggestions**: Receive real-time suggestions based on your input.
+- **Copy values to clipboard**: If any site does not allow the injection of values, you can still copy them from browser popup and paste it.
 
 ## Installation
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/your-username/slashfill.git
-   cd slashfill
-   ```
-
-2. **Install Dependencies:**
-
-   Ensure you have [Node.js](https://nodejs.org/) installed, then run:
-
-   ```bash
-   yarn install
-   ```
-
-3. **Build the Extension:**
-
-   Compile the extension with:
-
-   ```bash
-   yarn build:dev
-   ```
-
-4. **Load the Extension in Chrome:**
-
-   - Open Chrome and go to `chrome://extensions/`.
-   - Enable "Developer mode" (toggle switch in the top-right corner).
-   - Click "Load unpacked" and select the `dist` directory from the project.
+- Download the Zip file from [SlashFill.zip](https://github.com/rohansharmasitoula/slashfill/raw/master/slashfill.zip)
+- Unzip the file
+- Open Chrome and go to `chrome://extensions/`.
+- Enable "Developer mode" (toggle switch in the top-right corner).
+- Click "Load unpacked" and select the `slashfill` directory that you unzipped
 
 ## Usage
 
@@ -67,11 +57,37 @@
 
    Type a slash (`/`) followed by the key to get suggestions based on your stored data. Select a suggestion to auto-fill the input field.
 
+## Development
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone git@github.com:rohansharmasitoula/slashfill.git
+   cd slashfill
+   ```
+
+2. **Install Dependencies:**
+
+   Ensure you have [Node.js](https://nodejs.org/) installed, then run:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Build the Extension:**
+
+   Compile the extension with:
+
+   ```bash
+   yarn build:dev
+   ```
+4. **Load the Extension in Chrome:**
+
+   - Open Chrome and go to `chrome://extensions/`.
+   - Enable "Developer mode" (toggle switch in the top-right corner).
+   - Click "Load unpacked" and select the `dist` directory from the project.
 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request to contribute to the project.
 
----
-
-**Developed by [Rohan Sharma Sitoula](https://github.com/rohansharmasitoula)**

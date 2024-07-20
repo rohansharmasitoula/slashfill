@@ -3,6 +3,7 @@ import './index.css';
 import { createRoot } from 'react-dom/client';
 import { Modal } from './components/Modal';
 import { TrashIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
+import {ClipboardIcon} from "@heroicons/react/16/solid";
 
 interface DataItem {
   key: string;
@@ -64,6 +65,11 @@ const Popup: React.FC = () => {
           const result = e.target?.result as string;
           const importedData: { [id: string]: DataItem } = JSON.parse(result);
 
+          if (!Object.values(importedData).every(item => item.key && item.tag && item.value)) {
+            alert('The imported data format is invalid.');
+            return;
+          }
+
           const existingData = await new Promise<{ [id: string]: DataItem }>((resolve) =>
               chrome.storage.local.get(null, (data) => resolve(data as { [id: string]: DataItem })),
           );
@@ -72,7 +78,7 @@ const Popup: React.FC = () => {
           const errors: string[] = [];
 
           for (const [id, item] of Object.entries(importedData)) {
-            const { key, value, tag } = item as DataItem;
+            const { key, value, tag } = item;
             const newId = generateId(key, tag);
 
             if (existingData[newId]) {
@@ -87,15 +93,18 @@ const Popup: React.FC = () => {
           } else {
             const updatedData = { ...existingData, ...newData };
             chrome.storage.local.set(updatedData, () => {
-              setDataList(updatedData);
+              window.location.reload();
             });
           }
         } catch (error) {
           console.error('Failed to parse JSON:', error);
+          alert('Failed to parse JSON. Please check the file format.');
         }
       };
 
       reader.readAsText(file);
+    } else {
+      alert('No file selected.');
     }
   };
 
@@ -108,6 +117,7 @@ const Popup: React.FC = () => {
       a.download = 'data.json';
       a.click();
       URL.revokeObjectURL(url);
+      window.location.reload();
     });
   };
 
@@ -120,6 +130,7 @@ const Popup: React.FC = () => {
       });
       setDataList(newDataList);
       setSelectedIds(new Set());
+      window.location.reload();
     });
   };
 
@@ -138,6 +149,7 @@ const Popup: React.FC = () => {
     setEditValue(value);
     setEditTag(tag);
     setIsModalOpen(true);
+    window.location.reload();
   };
 
   const handleModalSave = (key: string, value: string, tag: string) => {
@@ -182,6 +194,13 @@ const Popup: React.FC = () => {
           (value || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
           (tag || '').toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleCopyValue = (value: string) => {
+    navigator.clipboard.writeText(value).then(
+        () => alert('Value copied to clipboard!'),
+        (err) => alert('Failed to copy value')
+    );
+  };
 
   return (
       <div className="popup-container">
@@ -322,9 +341,12 @@ const Popup: React.FC = () => {
                                   </button>
                                   <button
                                       onClick={() => handleUpdateSingle(id)}
-                                      className="bg-emerald-600 text-white px-2 py-1 rounded flex items-center"
+                                      className="bg-emerald-600 text-white px-2 py-1 mb-2 rounded flex items-center"
                                   >
                                     <PencilSquareIcon className="h-3 w-3"/>
+                                  </button>
+                                  <button onClick={() => handleCopyValue(value)} className="bg-gray-700 text-white px-2 py-1 rounded flex items-center">
+                                    <ClipboardIcon className="h-3 w-3"/>
                                   </button>
                                 </td>
                               </tr>
