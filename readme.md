@@ -23,47 +23,12 @@
 - **Edit and Delete**: Update or remove individual entries or delete selected items.
 - **Dropdown Suggestions**: Receive real-time suggestions based on your input.
 
-
-
 ## Installation
 - Download the Zip file from [SlashFill.zip](https://github.com/rohansharmasitoula/slashfill/raw/master/slashfill.zip)
 - Unzip the file
 - Open Chrome and go to `chrome://extensions/`.
 - Enable "Developer mode" (toggle switch in the top-right corner).
 - Click "Load unpacked" and select the `slashfill` directory that you unzipped
-
-
-
-## Development
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone git@github.com:rohansharmasitoula/slashfill.git
-   cd slashfill
-   ```
-
-2. **Install Dependencies:**
-
-   Ensure you have [Node.js](https://nodejs.org/) installed, then run:
-
-   ```bash
-   yarn install
-   ```
-
-3. **Build the Extension:**
-
-   Compile the extension with:
-
-   ```bash
-   yarn build:dev
-   ```
-
-4. **Load the Extension in Chrome:**
-
-   - Open Chrome and go to `chrome://extensions/`.
-   - Enable "Developer mode" (toggle switch in the top-right corner).
-   - Click "Load unpacked" and select the `dist` directory from the project.
 
 ## Usage
 
@@ -91,6 +56,35 @@
 
    Type a slash (`/`) followed by the key to get suggestions based on your stored data. Select a suggestion to auto-fill the input field.
 
+## Development
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone git@github.com:rohansharmasitoula/slashfill.git
+   cd slashfill
+   ```
+
+2. **Install Dependencies:**
+
+   Ensure you have [Node.js](https://nodejs.org/) installed, then run:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Build the Extension:**
+
+   Compile the extension with:
+
+   ```bash
+   yarn build:dev
+   ```
+4. **Load the Extension in Chrome:**
+
+   - Open Chrome and go to `chrome://extensions/`.
+   - Enable "Developer mode" (toggle switch in the top-right corner).
+   - Click "Load unpacked" and select the `dist` directory from the project.
 
 ## Contributing
 
