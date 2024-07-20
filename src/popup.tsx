@@ -64,6 +64,11 @@ const Popup: React.FC = () => {
           const result = e.target?.result as string;
           const importedData: { [id: string]: DataItem } = JSON.parse(result);
 
+          if (!Object.values(importedData).every(item => item.key && item.tag && item.value)) {
+            alert('The imported data format is invalid.');
+            return;
+          }
+
           const existingData = await new Promise<{ [id: string]: DataItem }>((resolve) =>
               chrome.storage.local.get(null, (data) => resolve(data as { [id: string]: DataItem })),
           );
@@ -72,7 +77,7 @@ const Popup: React.FC = () => {
           const errors: string[] = [];
 
           for (const [id, item] of Object.entries(importedData)) {
-            const { key, value, tag } = item as DataItem;
+            const { key, value, tag } = item;
             const newId = generateId(key, tag);
 
             if (existingData[newId]) {
@@ -87,15 +92,18 @@ const Popup: React.FC = () => {
           } else {
             const updatedData = { ...existingData, ...newData };
             chrome.storage.local.set(updatedData, () => {
-              setDataList(updatedData);
+              window.location.reload();
             });
           }
         } catch (error) {
           console.error('Failed to parse JSON:', error);
+          alert('Failed to parse JSON. Please check the file format.');
         }
       };
 
       reader.readAsText(file);
+    } else {
+      alert('No file selected.');
     }
   };
 
@@ -108,6 +116,7 @@ const Popup: React.FC = () => {
       a.download = 'data.json';
       a.click();
       URL.revokeObjectURL(url);
+      window.location.reload();
     });
   };
 
@@ -120,6 +129,7 @@ const Popup: React.FC = () => {
       });
       setDataList(newDataList);
       setSelectedIds(new Set());
+      window.location.reload();
     });
   };
 
@@ -128,6 +138,7 @@ const Popup: React.FC = () => {
       const newDataList = { ...dataList };
       delete newDataList[id];
       setDataList(newDataList);
+      window.location.reload();
     });
   };
 
@@ -138,6 +149,7 @@ const Popup: React.FC = () => {
     setEditValue(value);
     setEditTag(tag);
     setIsModalOpen(true);
+    window.location.reload();
   };
 
   const handleModalSave = (key: string, value: string, tag: string) => {
@@ -153,6 +165,7 @@ const Popup: React.FC = () => {
       setDataList((prevDataList) => ({ ...prevDataList, [id]: updatedData }));
       setIsModalOpen(false);
     });
+    window.location.reload();
   };
 
   const handleCheckboxChange = (id: string) => {
