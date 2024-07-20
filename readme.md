@@ -1,3 +1,4 @@
+# Coming Soon to the Web Store!
 <p>
   <img src="public/logo.png" alt="Logo" width="80" height="80" style="vertical-align: middle;">
 </p>
