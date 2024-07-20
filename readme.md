@@ -1,3 +1,6 @@
+<p>
+  <img src="public/logo.png" alt="Logo" width="80" height="80" style="vertical-align: middle;">
+</p>
 # SlashFill
 
 **SlashFill** is a Chrome extension designed to streamline data entry on web pages by using environment-based tags and slash commands for quick population. Ideal for developers and QA professionals, this extension helps you manage and populate data efficiently with slash (`/`) command.
