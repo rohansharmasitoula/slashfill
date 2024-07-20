@@ -3,6 +3,7 @@ import './index.css';
 import { createRoot } from 'react-dom/client';
 import { Modal } from './components/Modal';
 import { TrashIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
+import {ClipboardIcon} from "@heroicons/react/16/solid";
 
 interface DataItem {
   key: string;
@@ -138,7 +139,6 @@ const Popup: React.FC = () => {
       const newDataList = { ...dataList };
       delete newDataList[id];
       setDataList(newDataList);
-      window.location.reload();
     });
   };
 
@@ -165,7 +165,6 @@ const Popup: React.FC = () => {
       setDataList((prevDataList) => ({ ...prevDataList, [id]: updatedData }));
       setIsModalOpen(false);
     });
-    window.location.reload();
   };
 
   const handleCheckboxChange = (id: string) => {
@@ -195,6 +194,13 @@ const Popup: React.FC = () => {
           (value || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
           (tag || '').toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleCopyValue = (value: string) => {
+    navigator.clipboard.writeText(value).then(
+        () => alert('Value copied to clipboard!'),
+        (err) => alert('Failed to copy value')
+    );
+  };
 
   return (
       <div className="popup-container">
@@ -335,9 +341,12 @@ const Popup: React.FC = () => {
                                   </button>
                                   <button
                                       onClick={() => handleUpdateSingle(id)}
-                                      className="bg-emerald-600 text-white px-2 py-1 rounded flex items-center"
+                                      className="bg-emerald-600 text-white px-2 py-1 mb-2 rounded flex items-center"
                                   >
                                     <PencilSquareIcon className="h-3 w-3"/>
+                                  </button>
+                                  <button onClick={() => handleCopyValue(value)} className="bg-gray-700 text-white px-2 py-1 rounded flex items-center">
+                                    <ClipboardIcon className="h-3 w-3"/>
                                   </button>
                                 </td>
                               </tr>
